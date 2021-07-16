@@ -3,7 +3,8 @@ import logo from "./logo.svg";
 import "@fontsource/roboto";
 import { Grid, Button, Typography, Card } from "@material-ui/core";
 import "./App.css";
-import tempCover from './assets/temp-cover.jpeg';
+import tempCover from "./assets/temp-cover.jpeg";
+import TempPlaylistData from "./TempPlaylistData";
 
 import {
   faArrowAltCircleLeft,
@@ -16,11 +17,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default class App extends Component {
   state = {
     playButton: false,
+    playListArea: false,
+    playlistData: [],
   };
 
   togglePlayButton = () => {
     this.setState({ playButton: !this.state.playButton });
   };
+
+  togglePlaylists = () => {
+    this.setState({ playListArea: !this.state.playListArea });
+  };
+
+  componentDidMount() {
+    this.setState({ playlistData: TempPlaylistData });
+  }
 
   render() {
     return (
@@ -29,14 +40,44 @@ export default class App extends Component {
         className='App container-mx-height'
         justifyContent='center'
         alignItems='center'
-        style={{flexDirection: "column"}}
+        style={{ flexDirection: "column" }}
       >
+        {this.state.playListArea ? (
+          <Grid
+            item
+            style={{
+              height: "100%",
+              backgroundColor: "gray",
+              position: "absolute",
+              left: 0,
+              flexDirection: "column",
+              padding: 10,
+            }}
+          >
+            <Grid item>
+              <Typography style={{ fontSize: 24, fontWeight: 600 }}>
+                Playlists
+              </Typography>
+            </Grid>
+            <Grid item>
+              {this.state.playlistData.map((currentPlaylist) => {
+                return (
+                  <Grid>
+                    <Typography>{currentPlaylist.PlaylistName}</Typography>
+                  </Grid>
+                );
+              })}
+            </Grid>
+          </Grid>
+        ) : (
+          ""
+        )}
         <Grid
           item
           alignContent='center'
           alignItems='center'
           justifyContent='center'
-          style={{ display: "flex"}}
+          style={{ display: "flex" }}
         >
           <Grid item>
             <FontAwesomeIcon
@@ -64,11 +105,50 @@ export default class App extends Component {
             />
           </Grid>
         </Grid>
-        <Grid item flexDirection="row" alignItems="center" style={{display: "flex"}}>
-        <img src={tempCover} style={{width: 50, height: 50, margin: "0 10px"}}></img>
-        <Typography style={{fontSize: 24}}>
-              Playing: Flume - The Difference (Extended Version)
-        </Typography>
+        <Grid item flexDirection='column' style={{ display: "flex" }}>
+          <Button onClick={this.togglePlaylists}>
+            <Grid
+              style={{
+                width: 25,
+                height: 25,
+                backgroundColor: "black",
+                margin: "0 1px",
+              }}
+              className='br-circle'
+            ></Grid>
+            <Grid
+              style={{
+                width: 25,
+                height: 25,
+                backgroundColor: "black",
+                margin: "0 1px",
+              }}
+              className='br-circle'
+            ></Grid>
+            <Grid
+              style={{
+                width: 25,
+                height: 25,
+                backgroundColor: "black",
+                margin: "0 1px",
+              }}
+              className='br-circle'
+            ></Grid>
+          </Button>
+        </Grid>
+        <Grid
+          item
+          flexDirection='row'
+          alignItems='center'
+          style={{ display: "flex" }}
+        >
+          <img
+            src={tempCover}
+            style={{ width: 50, height: 50, margin: "0 10px" }}
+          ></img>
+          <Typography style={{ fontSize: 24 }}>
+            Playing: Flume - The Difference (Extended Version)
+          </Typography>
         </Grid>
       </Grid>
     );
