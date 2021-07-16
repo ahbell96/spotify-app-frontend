@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import "@fontsource/roboto";
 import { Grid, Button, Typography, Card } from "@material-ui/core";
 import "./App.css";
+import tempCover from './assets/temp-cover.jpeg';
 
 import {
   faArrowAltCircleLeft,
@@ -28,13 +29,14 @@ export default class App extends Component {
         className='App container-mx-height'
         justifyContent='center'
         alignItems='center'
+        style={{flexDirection: "column"}}
       >
         <Grid
           item
           alignContent='center'
           alignItems='center'
           justifyContent='center'
-          style={{ display: "flex" }}
+          style={{ display: "flex"}}
         >
           <Grid item>
             <FontAwesomeIcon
@@ -61,6 +63,12 @@ export default class App extends Component {
               style={{ width: 80, height: 80 }}
             />
           </Grid>
+        </Grid>
+        <Grid item flexDirection="row" alignItems="center" style={{display: "flex"}}>
+        <img src={tempCover} style={{width: 50, height: 50, margin: "0 10px"}}></img>
+        <Typography style={{fontSize: 24}}>
+              Playing: Flume - The Difference (Extended Version)
+        </Typography>
         </Grid>
       </Grid>
     );
