@@ -22,7 +22,7 @@ const PlaylistArea = () => {
           {playlistData.map((currentPlaylist) => {
             return (
               <Grid justifyContent="center" style={{display: "flex"}}>
-                <Button variant="h6">{currentPlaylist.PlaylistName}</Button>
+                <Button variant="h3" style={{color: "white"}}>{currentPlaylist.PlaylistName}</Button>
               </Grid>
             );
           })}
