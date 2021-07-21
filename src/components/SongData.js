@@ -1,22 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 import { Grid, Button, Typography } from "@material-ui/core";
-import { useState } from "react";
 import tempCover from "../assets/temp-cover.jpeg";
 
 const SongData = () => {
   return (
     <Grid
       item
-      flexDirection="row"
-      alignItems="center"
-      style={{ display: "flex" }}
+      className="song-data-container"
     >
       <img
         src={tempCover}
-        style={{ width: 50, height: 50, margin: "0 10px" }}
+        className="album-cover"
         alt="Album Cover"
       ></img>
-      <Typography style={{ fontSize: 24 }}>
+      <Typography variant="h2">
         Playing: Flume - The Difference (Extended Version)
       </Typography>
     </Grid>

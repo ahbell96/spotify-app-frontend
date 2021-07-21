@@ -1,3 +1,17 @@
+.background-gradient {
+  background: #67b26f; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #4ca2cd,
+    #67b26f
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #4ca2cd,
+    #67b26f
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
 .br-circle {
   border-radius: 50%;
 }
@@ -6,4 +20,77 @@
   height: 100vh;
 }
 
-.back-forward-icon-size {width: 80 !important; height: 80 !important;}
+.app-container-flex {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.music-player-container-flex {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.music-player-inner-flex-container {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.music-player-selection-button {
+  width: 80px !important;
+  height: 80px;
+}
+
+.music-player-play-pause {
+  width: 250px !important;
+  height: 250px;
+  /* margin below does not work, requires override of original material ui style for base component. */
+  margin: 40px;
+}
+
+.back-forward-icon-size {
+  width: 80 !important;
+  height: 80 !important;
+}
+
+.song-data-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 40px;
+}
+
+.playlist-area-container {
+  height: 100%;
+  background-color:gray;
+  position: absolute;
+  left: 0;
+  flex-direction: column;
+}
+
+.playlist-header {
+  font-size: 24;
+  font-weight: 600;
+  padding:10;
+}
+
+.inner-playlist-button-circles {
+  width: 25px !important;
+  height: 25px;
+  background-color: black;
+  margin: 0 1px;
+}
+
+.album-cover {
+  /* style={{ width: 50, height: 50, margin: "0 10px" }} */
+
+  width: 150px;
+  height: 150px;
+  margin: 0 10px;
+  padding: 20px;
+}

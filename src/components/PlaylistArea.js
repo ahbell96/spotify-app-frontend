@@ -10,25 +10,19 @@ const PlaylistArea = () => {
     return (
         <Grid
         item
-        style={{
-          height: "100%",
-          backgroundColor: "gray",
-          position: "absolute",
-          left: 0,
-          flexDirection: "column",
-          padding: 10,
-        }}
+        className="playlist-area-container"
+        style={{padding: 20}}
       >
         <Grid item>
-          <Typography style={{ fontSize: 24, fontWeight: 600 }}>
+          <Typography variant="h4" style={{paddingTop: 20, paddingBottom: 20}}>
             Playlists
           </Typography>
         </Grid>
         <Grid item>
           {playlistData.map((currentPlaylist) => {
             return (
-              <Grid>
-                <Typography>{currentPlaylist.PlaylistName}</Typography>
+              <Grid justifyContent="center" style={{display: "flex"}}>
+                <Button variant="h6">{currentPlaylist.PlaylistName}</Button>
               </Grid>
             );
           })}

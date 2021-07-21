@@ -9,21 +9,9 @@ import MusicPlayer from "./components/MusicPlayer";
 import PlaylistButton from "./components/Buttons/PlaylistButton";
 import SongData from "./components/SongData";
 
-import {
-  faArrowAltCircleLeft,
-  faArrowAltCircleRight,
-  faPlayCircle,
-  faPauseCircle,
-} from "@fortawesome/free-regular-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 export default class App extends Component {
   state = {
     playListArea: false,
-  };
-
-  togglePlayButton = () => {
-    this.setState({ playButton: !this.state.playButton });
   };
 
   togglePlaylists = () => {
@@ -34,21 +22,11 @@ export default class App extends Component {
     return (
       <Grid
         container
-        className="App container-mx-height"
-        justifyContent="center"
-        alignItems="center"
-        style={{ flexDirection: "column" }}
+        className="App container-mx-height background-gradient app-container-flex"
       >
         {this.state.playListArea ? <PlaylistArea /> : ""}
-        <Grid
-          item
-          alignContent="center"
-          alignItems="center"
-          justifyContent="center"
-          style={{ display: "flex", flexDirection: "column" }}
-        >
+        <Grid item className="music-player-container-flex">
           <MusicPlayer />
-
           <PlaylistButton TogglePlaylist={this.togglePlaylists} />
         </Grid>
         <SongData />

@@ -18,34 +18,35 @@ const MusicPlayer = () => {
   return (
     <Grid
       item
-      alignContent="center"
-      alignItems="center"
-      justifyContent="center"
-      style={{ display: "flex" }}
+      className="music-player-inner-flex-container"
     >
       <Grid item>
         <FontAwesomeIcon
           icon={faArrowAltCircleLeft}
-          style={{ width: 80, height: 80 }}
+          className="music-player-selection-button"
         />
       </Grid>
       <Button item onClick={togglePlayButton}>
         {playButton ? (
           <FontAwesomeIcon
             icon={faPauseCircle}
-            style={{ width: 250, height: 250, margin: 40 }}
+            spacing={10}
+            className="music-player-play-pause"
+            style={{margin: "40px"}}
           ></FontAwesomeIcon>
         ) : (
           <FontAwesomeIcon
             icon={faPlayCircle}
-            style={{ width: 250, height: 250, margin: 40 }}
+            spacing={10}
+            className="music-player-play-pause"
+            style={{margin: "40px"}}
           ></FontAwesomeIcon>
         )}
       </Button>
       <Grid item>
         <FontAwesomeIcon
           icon={faArrowAltCircleRight}
-          style={{ width: 80, height: 80 }}
+          className="music-player-selection-button"
         />
       </Grid>
     </Grid>
