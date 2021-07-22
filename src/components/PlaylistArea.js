@@ -1,11 +1,21 @@
 import React from 'react';
 import { Grid, Button, Typography } from '@material-ui/core';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import TempPlaylistData from '../TempPlaylistData';
+import axios from 'axios';
 
 const PlaylistArea = () => {
 
     const [playlistData, setPlaylistData] = useState(TempPlaylistData);
+
+    useEffect(() => {
+
+      // cors - security measure to consider.
+      axios.get('localhost:8080/playlists').then((response)=>{
+      alert();
+      });
+
+    }, [])
 
     return (
         <Grid

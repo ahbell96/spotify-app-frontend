@@ -13,7 +13,7 @@ const SongData = () => {
         className="album-cover"
         alt="Album Cover"
       ></img>
-      <Typography variant="h2">
+      <Typography variant="h3">
         Playing: Flume - The Difference (Extended Version)
       </Typography>
     </Grid>

@@ -3,7 +3,6 @@ import logo from "./logo.svg";
 import "@fontsource/roboto";
 import { Grid, Button, Typography, Card } from "@material-ui/core";
 import "./App.css";
-import tempCover from "./assets/temp-cover.jpeg";
 import PlaylistArea from "./components/PlaylistArea";
 import MusicPlayer from "./components/MusicPlayer";
 import PlaylistButton from "./components/Buttons/PlaylistButton";
