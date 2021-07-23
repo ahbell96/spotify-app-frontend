@@ -29,10 +29,10 @@ const PlaylistArea = () => {
           </Typography>
         </Grid>
         <Grid item>
-          {playlistData.map((currentPlaylist) => {
+          {playlistData.items.map((currentPlaylist) => {
             return (
               <Grid justifyContent="center" style={{display: "flex"}}>
-                <Button variant="h3" style={{color: "white"}}>{currentPlaylist.PlaylistName}</Button>
+                <Button variant="h3" style={{color: "white"}}>{currentPlaylist.name}</Button>
               </Grid>
             );
           })}
