@@ -19,12 +19,10 @@ const PlaylistArea = () => {
 
     return (
         <Grid
-        item
         className="playlist-area-container"
-        style={{padding: 20}}
       >
         <Grid item>
-          <Typography variant="h4" style={{paddingTop: 20, paddingBottom: 20}}>
+          <Typography variant="h4" style={{paddingTop: 20, paddingBottom: 20, textAlign: "center"}}>
             Playlists
           </Typography>
         </Grid>
