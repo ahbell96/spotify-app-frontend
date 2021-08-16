@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
 import { Grid, Typography, Button } from "@material-ui/core";
 import {
   faArrowAltCircleLeft,
@@ -8,8 +9,20 @@ import {
 } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const MusicPlayer = () => {
+const MusicPlayer = ({selectedPlaylist}) => {
   const [playButton, setPlayButton] = useState(true);
+  console.log(selectedPlaylist)
+  useEffect(() => {
+    axios.get(`http://localhost:8080/playlists/${selectedPlaylist.id}`).then((res) => {
+      let playlistData = res.data.tracks.items;
+      playlistData = playlistData.map(({track}, index) => {
+        const {id, name, album} = track;
+        const {images} = album;
+        return {id, name, images};
+      })
+      console.log(playlistData)
+    })
+  }, [selectedPlaylist])
 
   const togglePlayButton = () => {
     setPlayButton(!playButton);
