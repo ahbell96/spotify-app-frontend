@@ -9,13 +9,24 @@ import PlaylistButton from "./components/Buttons/PlaylistButton";
 import SongData from "./components/SongData";
 import SongList from './components/SongList';
 import React from 'react'
+import axios from "axios";
 
 export default class App extends Component {
   state = {
     playListArea: false,
     showSongList: false,
-    selectedPlaylist : {}
+    selectedPlaylist : {},
+    profile : {}
   };
+
+  componentDidMount() {
+    const self = this;
+    axios.get('http://localhost:8080/me').then((res) => {
+      const data = res.data;
+      self.setState({profile: data});
+      console.log(self.state);
+    })
+  }
 
   togglePlaylists = () => {
     this.setState({ playListArea: !this.state.playListArea });
@@ -43,7 +54,7 @@ export default class App extends Component {
           <MusicPlayer selectedPlaylist={this.state.selectedPlaylist} />
           <PlaylistButton TogglePlaylist={this.togglePlaylists} />
         </Grid>
-        <SongData />
+        
       </Grid>
     );
   }
